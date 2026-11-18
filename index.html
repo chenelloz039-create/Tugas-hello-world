@@ -1,0 +1,109 @@
+<style>
+    body {
+        background-color: #f0f8ff; /* Mengatur warna latar belakang halaman menjadi biru muda lembut */
+        font-family: Arial, sans-serif; /* Menentukan jenis huruf yang digunakan pada seluruh teks */
+    }
+    h1 {
+        color:#2b6cb0; /* Mengatur warna teks pada judul utama (h1) menjadi biru */
+    }
+    .tombol-keren {
+        background-color: #2b6cb0; /* Warna tombol biru */
+        color: white; /* Warna tulisan putih */
+        border: none; /* Menghilangkan garis pinggir yang kaku */
+        padding: 12px 24px; /* Memberikan ruang di dalam tombol agar lebih besar */
+        font-size: 16px; /* ukuran tulisan tombol */
+        border-radius: 8px; /* Membuat sudut tombol jadi melengkung/halus */
+        cursor: pointer; /* Mengubah menjadi ikon tangan saat di arahkan ke tombol */
+        margin-top: 20px; /* Memberikan jarak dari daftar angka di atasnya */
+    }
+    .tombol-keren:hover {
+        background-color: #1a4976; /* Warna berubah menjadi Biru lebih tua saat disentuh kursor */
+    }
+    /* Gaya untuk Mode Gelap */
+    .dark-mode {
+        background-color: #1a202c !important;
+        color: #e2e8f0 !important;
+    }
+    .dark-mode section {
+        background-color: #2d3748 !important;
+        color: #ffffff !important;
+    }
+</style>
+<!-- Bagian Judul Utama Halaman -->
+<h1>Hello World</h1>
+<h2 id="sapaan"></h2>
+<p>Selamat datang di website pertama saya. ini adalah halaman latihan coding HTML.</p>
+<button onclick="ubahTampilan()" style="padding: 8px 16px; margin-bottom: 15px; cursor: pointer;">
+    🌙 Ganti Mode Gelap / Terang
+</button>
+
+<!-- Bagian Daftar Materi yang Ingin Dipelajari -->
+<h3>3 Hal Yang ingin saya pelajari:</h3>
+<ol>
+    <li>Membuat tampilan web yang keren (css)</li>
+    <li>Membuat web bisa diklik dan interaktif (JavaScript)</li>
+    <li>Membuat proyek aplikasi web sendiri</li>
+</ol>
+
+<!-- Tombol Interaktif dengan Fungsi JavaScript -->
+<button class="tombol-keren" onclick="tampilkanPesan()">Klik Saya!</button>
+<p id="hasilKlik">Kamu belum klik apa-apa.</p>
+<button onclick="resetKlik()">Reset</button>
+<!-- 2. Tambahkan Catatan Belajar di bawah tombol -->
+ <section style="margin-top: 30px; padding: 20px; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+
+    <!-- Judul Kartu Catatan Belajar -->
+    <h2>&#128204; Catatan belajar ku</h2>
+    <p>Berikut adalah daftar teknologi dan materi yang sedang aku pelajari:</p>
+
+    <!-- Daftar Status Pembelajaran Teknologi -->
+    <ul>
+        <li><strong>HTML:</strong> Membuat kerangka dasar halaman web (selesai &#9989;)</li>
+        <li><strong>CSS:</strong> Menghias tampilan, warna, dan tombol agar lebih estetik (Sedang dipelajari &#128260;)</li>
+        <li><strong>JavaScript:</strong> Membuat halaman web menjadi interaktif dan bisa diklik (Mulai dicoba &#128640;)</li>
+        <li><strong>Python:</strong> Mempelajari logika pemrograman dasar dan algoritma (Agenda berikutnya &#128161;)</li>
+    </ul>
+ </section>
+
+ <!-- Kode JavaScript interaksi tombol -->
+  <script>
+    function tampilkanPesan() {
+        jumlah++;
+        document.getElementById("hasilKlik").textContent = "kamu sudah klik" + jumlah + "kali!";
+        alert("Yeay! Tombolnya berhasil diklik dan interaktif");
+    }
+    function resetKlik() {
+        jumlah = 0;
+        document.getElementById("hasilKlik").textContent = "Kamu belum klik apa-apa.";
+    }
+    //TAMBAHKAN FUNGSI DARK MODE DI SINI:
+    let jumlah = 0;
+    function ubahTampilan() {
+        document.body.classList.toggle("dark-mode");
+
+        if (document.body.classList.contains("dark-mode")) {
+            localStorage.setItem("tema", "terang")
+        }
+    }
+    function tampilkanSapaan() {
+        let jam = new Date(). getHours();
+        let teks;
+
+        if (jam < 11) {
+            teks = "Selamat pagi";
+        } else if (jam < 15) {
+            teks = "Selamat siang";
+        } else if (jam < 18) {
+            teks = "Selamat sore";
+        } else {
+            teks = "Selamat malam";
+        }
+        document.getElementById("sapaan").textContent = teks + ", Semuanya! 👋";
+    }
+    tampilkanSapaan();
+  </script>
+  <p>Halo! Nama saya Wafa Halilah Nurafiah, seorang mahasiswa Sistem Informasi yang sedang belajar membuat website.</p>
+  <p>Temukan saya di:
+    <a href="https://github.com/" target="_blank">GitHub</a> |
+    <a href="https://instagram.com/" target="_blank">Instagram</a>
+  </p>
